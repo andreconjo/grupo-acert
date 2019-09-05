@@ -1,14 +1,14 @@
 package br.com.grupoacert.conversion.api.service;
 
 import br.com.grupoacert.conversion.api.model.Conversion;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 public interface ConversionService {
 
     Conversion save(Conversion conversion);
 
-    Page<Conversion> getAll(Pageable pageable);
+    List<Conversion> getAll();
 
     Conversion getById(Long id);
 }
