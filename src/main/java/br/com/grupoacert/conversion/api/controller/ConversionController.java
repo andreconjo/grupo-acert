@@ -24,7 +24,7 @@ public class ConversionController {
     @Autowired
     ApplicationEventPublisher publisher;
 
-    @PostMapping("toCelsius")
+    @PostMapping("FahrenheitToCelsius")
     public ResponseEntity<ConversionDTO> toCelsius(@RequestBody ConversionDTO conversionDTO, HttpServletResponse response) {
 
         Conversion conversion = conversionService.save(
@@ -37,7 +37,7 @@ public class ConversionController {
         return new ResponseEntity<>(new ConversionDTO(conversion.getCelsius()), HttpStatus.OK);
     }
 
-    @PostMapping("toFahrenheit")
+    @PostMapping("CelsiusToFahrenheit")
     public ResponseEntity<ConversionDTO> toFahrenheit(@RequestBody ConversionDTO conversionDTO, HttpServletResponse response) {
         Conversion conversion = conversionService.save(
                 new Conversion(conversionDTO.temperature, 0.0, ConversionType.CelsiusToFahrenheit));
