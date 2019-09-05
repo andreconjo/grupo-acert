@@ -41,7 +41,7 @@ class ConversionControllerTests {
                 "  \"temperature\": 60.0 \n" +
                 "}";
 
-        mockMvc.perform(post("/conversion/toCelsius")
+        mockMvc.perform(post("/conversion/FahrenheitToCelsius")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().isOk())
@@ -54,7 +54,7 @@ class ConversionControllerTests {
                 "  \"temperature\": 15.56 \n" +
                 "}";
 
-        mockMvc.perform(post("/conversion/toFahrenheit")
+        mockMvc.perform(post("/conversion/CelsiusToFahrenheit")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().isOk())
