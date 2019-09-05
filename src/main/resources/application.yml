@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/conversion
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+    deserialization:
+      fail-on-unknown-properties: true
+    mapper:
+      ACCEPT_CASE_INSENSITIVE_ENUMS: true
+
+hibernate:
+  jdbc:
+    lob:
+      non_contextual_creation: true
