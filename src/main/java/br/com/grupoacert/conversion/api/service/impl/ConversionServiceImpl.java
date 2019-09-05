@@ -7,6 +7,7 @@ import br.com.grupoacert.conversion.api.util.ConversionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 
@@ -20,13 +21,11 @@ public class ConversionServiceImpl implements ConversionService {
     public Conversion save(Conversion conversion) {
 
         if(conversion.getType() == ConversionType.CelsiusToFahrenheit)
-            conversion.setFahrenheit((9.0/5.0) * conversion.getCelsius() + 32);
+            conversion.setFahrenheit(Double.valueOf(new DecimalFormat("##.##").format((9.0/5.0) * conversion.getCelsius() + 32).replaceAll(",",".")));
         else
-            conversion.setCelsius(((conversion.getFahrenheit() - 32) * 5) / 9);
+            conversion.setCelsius(Double.valueOf(new DecimalFormat("##.##").format(((conversion.getFahrenheit() - 32) * 5) / 9).replaceAll(",",".")));
 
-        Conversion save = conversionRepository.save(conversion);
-
-        return save;
+        return conversionRepository.save(conversion);
     }
 
     @Override
