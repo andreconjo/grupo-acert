@@ -22,10 +22,7 @@ public class ResourceCreatedListener implements ApplicationListener<ResourceCrea
     private void addHeaderLocation(HttpServletResponse response, Long id) {
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("conversion/{id}")
                 .buildAndExpand(id).toUri();
-        System.out.println(ServletUriComponentsBuilder.fromCurrentContextPath());
-        System.out.println(ServletUriComponentsBuilder.fromCurrentRequestUri());
-        System.out.println(ServletUriComponentsBuilder.fromCurrentRequest());
-        System.out.println(ServletUriComponentsBuilder.fromCurrentServletMapping());
+
         response.setHeader("Location", uri.toASCIIString());
     }
 

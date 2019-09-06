@@ -1,6 +1,9 @@
 server:
   port: 8080
 spring:
+  jmx:
+    default-domain: br.com.grupoacert.conversion.api
+    unique-names: true
   mvc:
     locale: en_US
   jpa:

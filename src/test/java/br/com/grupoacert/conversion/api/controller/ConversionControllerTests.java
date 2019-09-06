@@ -45,7 +45,7 @@ class ConversionControllerTests {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.temperature", Matchers.is(15.56)));
+                .andExpect(jsonPath("$.conversion.celsius", Matchers.is(15.56)));
     }
 
     @Test
@@ -58,7 +58,7 @@ class ConversionControllerTests {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.temperature", Matchers.is(60.01)));
+                .andExpect(jsonPath("$.conversion.fahrenheit", Matchers.is(60.01)));
     }
 
 
